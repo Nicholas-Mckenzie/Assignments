@@ -2,11 +2,6 @@
 #include "IntArray.h"
 
 
-int IntArray::size() const
-{
-	return m_size;
-}
-
 int IntArray::intExist(int number)
 {
 	for (int i = 0; i < m_size; i++)
@@ -25,31 +20,68 @@ Values IntArray::modifyValue(int value, int index)
 		throw std::out_of_range("index out of range");
 	}
 
-	return Values(m_array[index], value);
+	Values values(m_array[index], value);
+	m_array[index] = value;
+
+	return values;
 }
 
+void IntArray::addInt(int number)
+{
+	if (m_size >= m_capacity)
+	{
+		throw std::length_error("Array is at max capacity");
+	}
 
+	m_array[m_size] = number;
+	m_size++;
+}
 
 int IntArray::remove(int index)
 {
-	if (index >= m_size)
+	if (index >= m_size || index < 0)
 	{
 		throw std::out_of_range("index out of range");
 	}
 
 	int oldValue = m_array[index];
-	m_array[index] = 0;
+
+	for (int i = index; i < m_size - 1; i++)
+	{
+		m_array[i] = m_array[i + 1];
+	}
+	m_size--;
 
 	return oldValue;
 }
 
-void IntArray::printArray()
+int IntArray::size() const
 {
-	for (int i = 0; i < m_size; i++)
+	return m_size;
+}
+
+int IntArray::capacity() const
+{
+	return m_capacity;
+}
+
+void IntArray::printArray() const
+{
+	if (m_size == 0)
+	{
+		std::cout << "Array is empty" << std::endl;
+		return;
+	}
+
+	std::cout << "[";
+	for (int i = 0; i < m_size-1; i++)
 	{
 		std::cout << m_array[i] << ", ";
 	}
-	std::cout << std::endl;
+	std::cout << m_array[m_size - 1];
+	std::cout << "]";
+
+	std::cout << " | Array size = " << m_size << std::endl;
 }
 
 void IntArray::setArray(int newArray[10])
@@ -58,18 +90,23 @@ void IntArray::setArray(int newArray[10])
 	{
 		m_array[i] = newArray[i];
 	}
+	m_size = 10;
 }
 
 IntArray::IntArray(int array[10])
-	: m_size(10)
+	: m_size(10), m_capacity(15)
 {
 	setArray(array);
+}
+
+IntArray::IntArray()
+	: m_size(0), m_capacity(15)
+{
 }
 
 int IntArray::operator[] (unsigned int index)
 {
 	return m_array[index];
 }
-
 
 

@@ -11,17 +11,19 @@ struct Values
 	Values(int oldVal, int newVal)
 		: oldValue(oldVal), newValue(newVal)
 	{}
+
+	Values()
+		:oldValue(0), newValue(0)
+	{
+	}
 };
 
 class IntArray
 {
 public:
 
-	// Returns the size of the array
-	int size() const;
-
 	// Checks if given number exist in array
-	// Returns index if true
+	// Returns index of the first instance of the number if true
 	// Returns -1 if false
 	int intExist(int number);
 
@@ -31,11 +33,24 @@ public:
 	// Adds an integer to the end of the array
 	void addInt(int number);
 
-	// Replaces data at the given index with 0 and returns the old data
+	// Deletes the data shifting all values after index back 1
+	// Returns old value
 	int remove(int index);
 
+
+	// -------------------------------------------- //
+	// ----- Below are non-assignment methods ----- //
+	// -------------------------------------------- //
+
+
+	// Returns the size of the array
+	int size() const;
+
+	// Returns the max size of the array
+	int capacity() const;
+
 	// Prints all the values of the array
-	void printArray();
+	void printArray() const;
 
 	// sets new Array
 	void setArray(int newArray[10]);
@@ -44,13 +59,17 @@ public:
 	int operator[](unsigned int index);
 
 	
+	// Default Constructor
+	IntArray();
+
 	// Constructor
 	IntArray(int array[10]);
 
 	
 private:
 
-	int m_array[10] = {0};
+	int m_array[15] = {0};
 	int m_size;
+	int m_capacity;
 
 };

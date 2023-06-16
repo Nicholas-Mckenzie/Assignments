@@ -6,53 +6,26 @@
 #include <exception>
 #include <time.h>
 
-// Populates the Arrays text file with a randomly generated 10 element arrays
-void writeFile()
+#include "Application.h"
+
+void AnotherTest()
 {
-	std::ofstream file;
-	file.open("Arrays.txt", std::ofstream::out | std::ofstream::trunc);
+	int temp[10] = { 0 };
+	std::cout << "test" << std::endl;
+}
 
-	for (int i = 0; i < 10; i++)
-	{
-		for (int i = 0; i < 10; i++)
-		{
-			file << std::rand() % 100 << " ";
-		}
-		file << std::endl;
-	}
-
-	file.close();
+void test()
+{
+	IntArray temp;
+	temp.printArray();
 }
 
 
 int main()
 {
-	// Generates a seed for std::rand()
-	std::srand(time(NULL));
 
-
-	std::string input;
-
-	while (true)
-	{
-		break;
-
-		std::cout << "Type command" << std::endl;
-		std::cin >> input;
-
-		if (input == "gen")
-		{	
-			writeFile();
-		}
-		else if (input == "break")
-		{
-			break;
-		}
-		else
-		{
-			std::cout << "Wrong command" << std::endl;
-		}
-	}
+	Application app;
+	app.run();	
 
 
 	return 0;
