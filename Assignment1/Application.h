@@ -37,15 +37,19 @@ private:
 
 	int arrayCommands(IntArray& array, int number);
 
+	// For function 1 of assignment 1
 	// Checks if integer exist in array
 	void command1(IntArray& array, std::string& input);
 
+	// For function 2 of assignment 1
 	// Modifies element in array
 	int command2(IntArray& array, std::string& input);
 
+	// For function 3 of assignment 1
 	// Adds integer to end of array
 	void command3(IntArray& array, std::string& input);
 
+	// For function 4 of assignment 1
 	// Deletes element in array
 	void command4(IntArray& array, std::string& input);
 
