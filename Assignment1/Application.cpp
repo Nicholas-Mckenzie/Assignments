@@ -216,6 +216,8 @@ int Application::arrayCommandsPrompt(IntArray& array)
 			if (number >= 1 && number <= 4)
 			{
 				int temp = arrayCommands(array, number);
+
+				std::cout << "\n--------------------------------------------\n" << std::endl;
 				if (temp == -1 || temp == 1)
 				{
 					return temp;
@@ -413,6 +415,9 @@ int Application::command2(IntArray& array, std::string& input)
 		}
 
 		values = array.modifyValue(intNewValue, index);
+
+		std::cout << "\nOld value: " << values.oldValue << std::endl;
+		std::cout << "New Value: " << values.newValue << std::endl;
 		std::cout << "\n---------------------\n" << std::endl;
 
 		return 0;
