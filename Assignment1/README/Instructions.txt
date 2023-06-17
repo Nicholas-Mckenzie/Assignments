@@ -1,0 +1,12 @@
+I used visual studio for this project.
+
+For Visual Studio
+1. Create a new project
+2. Place all files in the same folder
+3. Press play in visual studios
+
+For g++
+1. Make sure all files are in the same folder 
+2. In the command line make sure you are at the same location as the files
+3. Type g++ *.cpp -o output
+4. Click the exe created or type output in the command line
