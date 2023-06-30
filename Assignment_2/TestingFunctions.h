@@ -104,7 +104,7 @@ void testingNonProfClass(NonProfEmployee nonProfOne)
 
 	std::cout << "----------------------------" << std::endl;
 	std::cout << "Incrementing absences by 1" << std::endl;
-	std::cout << "----------------------------" << std::endl;
+	std::cout << "----------------------------\n" << std::endl;
 	nonProfOne.incrementAbsence();
 
 	nonProfOne.printMainInfo();
