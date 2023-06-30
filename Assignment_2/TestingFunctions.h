@@ -1,9 +1,9 @@
 #pragma once
 
-#include "src/SingleLinkedList.h"
-#include "src/Employee.h"
-#include "src/ProfEmployee.h"
-#include "src/NonProfEmployee.h"
+#include "SingleLinkedList.h"
+#include "Employee.h"
+#include "ProfEmployee.h"
+#include "NonProfEmployee.h"
 
 
 
